@@ -1,12 +1,17 @@
 <div class="container">
 	<div class="jumbotron">
 	  <h1 class="display-3">Welcome to Louver Inventory!</h1>
-	  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+	  <p class="lead">Here is where you can control the Louver Inventory</p>
 	  <hr class="my-4">
-	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+	  <p>Click on Inventory to get started</p>
 	  <p class="lead">
 	    <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
-      <%= link_to 'Inventory', inventories_path, :class => "btn btn-primary" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Inventory', inventories_path, :class => "btn btn-primary" %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, :class => "btn btn-primary" %>
+        <%= link_to 'Sign up', new_user_registration_path, :class => "btn btn-primary" %>
+      <% end %>
 	  </p>
 	</div>
 </div>

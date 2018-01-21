@@ -10,10 +10,16 @@
 
   <body>
   	<div class="container">
-  	   <!-- <i class="fa fa-home fa-3x pull-right" aria-hidden="true"></i> -->
-  	   <!-- <%= fa_icon("home", :class => "pull-right fa-3x")  %> -->
+  		 <% if user_signed_in? %>
+  		   <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  		 <% end %>  
   	   <%= link_to '<i class="fa fa-home fa-3x pull-right" aria-hidden="true"></i>'.html_safe, root_path %>
   	</div>  
+  	<div class="container">
+      <%flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+  	</div>
     <%= yield %>
   </body>
 </html>
