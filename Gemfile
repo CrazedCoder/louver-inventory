@@ -14,7 +14,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'postgres', '~> 0.8.1'
 end
 
 # Use Puma as the app server
